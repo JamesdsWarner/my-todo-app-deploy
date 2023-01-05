@@ -69,6 +69,7 @@ export const isLoggedIn = (req, res) => {
   }
   return jwt.verify(token, process.env.JWT_SECRET, (err) => {
     if (err) {
+      console.log(err);
       return res.json(false);
     }
     return res.json(true);
