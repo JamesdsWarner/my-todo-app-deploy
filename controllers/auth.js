@@ -65,7 +65,7 @@ export const logout = (req, res) => {
 export const isLoggedIn = (req, res) => {
   const token = req.cookies.access_token;
   if (!token) {
-    return res.json(true);
+    return res.json(false);
   }
   return jwt.verify(token, process.env.JWT_SECRET, (err) => {
     if (err) {
