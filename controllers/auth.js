@@ -71,6 +71,7 @@ export const isLoggedIn = (req, res) => {
     if (err) {
       return res.json(false);
     }
-    return res.json(true);
+
+    res.redirect('/');
   });
 };
