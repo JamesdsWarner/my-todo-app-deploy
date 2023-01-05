@@ -16,12 +16,13 @@ app.use((req, res, next) => {
   'Access-Control-Allow-Methods', 'POST';
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', true);
-  res.header('Set-Cookie: cross-site-cookie=whatever; SameSite=None; Secure');
 
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH');
   next();
 });
-app.use(cors({ credentials: true, origin: 'http://localhost:3000' }));
+app.use(
+  cors({ credentials: true, origin: 'http://localhost:3000, exposedHeaders: ["set-cookie"],' })
+);
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
