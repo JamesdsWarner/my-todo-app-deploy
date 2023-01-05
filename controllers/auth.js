@@ -47,7 +47,8 @@ export const login = async (req, res, next) => {
     });
     return res
       .cookie('access_token', token, {
-        httpOnly: true,
+        httpOnly: false,
+        secure: true,
       })
       .status(200)
       .json({ message: 'login success' });
@@ -64,6 +65,7 @@ export const logout = (req, res) => {
 
 export const isLoggedIn = (req, res) => {
   const token = req.cookies.access_token;
+  console.log(token);
   if (!token) {
     return res.json(false);
   }
