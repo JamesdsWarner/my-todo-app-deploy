@@ -20,7 +20,13 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH');
   next();
 });
-app.use(cors({ credentials: true, origin: true }));
+app.use(
+  cors({
+    credentials: true,
+    origin: true,
+    origin: 'https://bejewelled-zuccutto-dfa6b6.netlify.app/',
+  })
+);
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
