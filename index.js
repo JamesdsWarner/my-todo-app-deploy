@@ -21,7 +21,7 @@ app.use((req, res, next) => {
   next();
 });
 app.use(
-  cors({ credentials: true, origin: 'http://localhost:3000, exposedHeaders: ["set-cookie"],' })
+  cors({ credentials: true, origin: 'http://localhost:3000', exposedHeaders: ['set-cookie'] })
 );
 app.use(morgan('tiny'));
 app.use(express.json());
