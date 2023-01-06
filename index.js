@@ -4,6 +4,8 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import path from 'path';
+import helmet from 'helmet';
+import bodyParser from 'body-parser';
 
 import { fileURLToPath } from 'url';
 import 'dotenv/config';
@@ -18,6 +20,8 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 // middleware
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({encoded: true}))
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'https://bejewelled-zuccutto-dfa6b6.netlify.app/');
   res.header('Access-Control-Allow-Methods', 'POST');
@@ -44,6 +48,7 @@ const corsOptions = {
     }
   },
 };
+app.use(helmet())
 app.use(cors(corsOptions));
 
 // routes
