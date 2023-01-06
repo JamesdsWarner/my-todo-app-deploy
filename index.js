@@ -22,7 +22,6 @@ app.use((req, res, next) => {
 });
 
 app.use(morgan('tiny'));
-app.use(express.json());
 app.use(cookieParser());
 
 const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://shrouded-journey-38552.heroku...'];
