@@ -140,7 +140,9 @@ export const AddTaskButton = styled.button`
   transition: all 0.2s ease;
   text-align: center;
 
-p
+padding: 0px;
+
+
   &:hover {
     background-color: white;
   }
