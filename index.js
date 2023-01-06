@@ -1,13 +1,13 @@
-import { MongoClient } from 'mongodb';
 import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
+import path from 'path';
 import 'dotenv/config';
 import allRoutes from './routes/index.js';
 
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const app = express();
 
 // middleware
@@ -20,15 +20,25 @@ app.use((req, res, next) => {
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, PATCH');
   next();
 });
-app.use(
-  cors({
-    credentials: true,
-    origin: 'https://bejewelled-zuccutto-dfa6b6.netlify.app/',
-  })
-);
+
 app.use(morgan('tiny'));
 app.use(express.json());
 app.use(cookieParser());
+
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://shrouded-journey-38552.heroku...'];
+const corsOptions = {
+  origin(origin, callback) {
+    console.log(`** Origin of request ${origin}`);
+    if (whitelist.indexOf(origin) !== -1 || !origin) {
+      console.log('Origin acceptable');
+      callback(null, true);
+    } else {
+      console.log('Origin rejected');
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+};
+app.use(cors(corsOptions));
 
 // routes
 app.use('/api', allRoutes);
@@ -40,6 +50,15 @@ app.use((err, req, res, next) => {
 
   return res.status(status).json({ message, stack: err.stack });
 });
+
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'frontend/build')));
+  // Handle React routing, return all requests to React app
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'));
+  });
+}
 
 const connectDB = async () => {
   const connectionString = process.env.ATLAS_URI;
