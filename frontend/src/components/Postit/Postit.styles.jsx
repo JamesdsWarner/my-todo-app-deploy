@@ -150,7 +150,8 @@ display: flex;
   }
 `;
 
-export const PlusSpan = styled.span``
+export const PlusSpan = styled(FontAwesomeIcon)`
+font-size: 20px;`
 
 export const Refresh = styled(FontAwesomeIcon)`
   font-size: 20px;

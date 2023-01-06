@@ -1,4 +1,4 @@
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ColourPicker from '../../ColourPicker/ColourPicker.component';
 import colorWheel from '../../../images/color-wheel.png';
 import { useState } from 'react';
@@ -93,7 +93,7 @@ const PrePostit = ({
       />
       <Styled.DeleteIcon onClick={addNewButtonClick}>&#10006;</Styled.DeleteIcon>
       <Styled.DoneButtonWrapper>
-        <Styled.AddTaskButton onClick={handleFinishedPostit}><Styled.PlusSpan>+</Styled.PlusSpan></Styled.AddTaskButton>
+        <Styled.DoneButton onClick={handleFinishedPostit}><Styled.PlusSpan icon={faPlus}></Styled.PlusSpan></Styled.DoneButton>
       </Styled.DoneButtonWrapper>
     </Styled.TodoPostitWrapper>
   );
