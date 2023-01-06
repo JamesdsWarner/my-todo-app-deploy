@@ -12,7 +12,7 @@ const app = express();
 
 // middleware
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'localhost:3000');
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   res.header('Access-Control-Allow-Methods', 'POST');
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
   res.header('Access-Control-Allow-Credentials', true);
@@ -23,7 +23,7 @@ app.use((req, res, next) => {
 app.use(
   cors({
     credentials: true,
-    origin: 'localhost:3000',
+    origin: 'http://localhost:3000',
   })
 );
 app.use(morgan('tiny'));
