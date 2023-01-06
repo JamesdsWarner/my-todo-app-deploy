@@ -134,11 +134,11 @@ export const AddTaskButton = styled.button`
   border-radius: 50%;
   opacity: 0.8;
   border: 1.5px solid black;
-  width: 90%;
-  padding: 0;
+  width: 100%;
   font-size: 43px;
   cursor: pointer;
   transition: all 0.2s ease;
+  
 
   &:hover {
     background-color: white;

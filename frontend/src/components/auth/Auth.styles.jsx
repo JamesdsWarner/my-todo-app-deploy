@@ -62,7 +62,8 @@ export const FormInput = styled.input`
   font-size: 23px;
   color: black;
   line-height: 43px;
-  border-radius: 3px; ;
+  border-radius: 3px;
+  max-width: 250px;
 `;
 
 export const Button = styled.button`
