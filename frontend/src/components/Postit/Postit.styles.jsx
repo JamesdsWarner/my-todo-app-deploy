@@ -139,14 +139,18 @@ export const AddTaskButton = styled.button`
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
-
-padding: 0px;
+display: flex;
+  padding: 0px;
+  justify-content: center;
+  align-items: center;
 
 
   &:hover {
     background-color: white;
   }
 `;
+
+export const PlusSpan = styled.span``
 
 export const Refresh = styled(FontAwesomeIcon)`
   font-size: 20px;

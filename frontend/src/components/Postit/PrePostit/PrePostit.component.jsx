@@ -93,7 +93,7 @@ const PrePostit = ({
       />
       <Styled.DeleteIcon onClick={addNewButtonClick}>&#10006;</Styled.DeleteIcon>
       <Styled.DoneButtonWrapper>
-        <Styled.AddTaskButton onClick={handleFinishedPostit}>+</Styled.AddTaskButton>
+        <Styled.AddTaskButton onClick={handleFinishedPostit}><Styled.PlusSpan>+</Styled.PlusSpan></Styled.AddTaskButton>
       </Styled.DoneButtonWrapper>
     </Styled.TodoPostitWrapper>
   );
