@@ -34,7 +34,7 @@ app.use((req, res, next) => {
 app.use(morgan('tiny'));
 app.use(cookieParser());
 
-const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://my-todo-deploy.herokuapp.com/auth', "https://my-todo-deploy.herokuapp.com/"];
+const whitelist = ['http://localhost:3000', 'http://localhost:8080', 'https://my-todo-deploy.herokuapp.com/auth', "https://my-todo-deploy.herokuapp.com"];
 const corsOptions = {
   origin(origin, callback) {
     console.log(`** Origin of request ${origin}`);
