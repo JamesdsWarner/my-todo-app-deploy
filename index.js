@@ -4,8 +4,15 @@ import morgan from 'morgan';
 import cookieParser from 'cookie-parser';
 import mongoose from 'mongoose';
 import path from 'path';
+
+import { fileURLToPath } from 'url';
 import 'dotenv/config';
 import allRoutes from './routes/index.js';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 
 const PORT = process.env.PORT || 8080;
 const app = express();
