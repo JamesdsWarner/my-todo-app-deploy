@@ -1,6 +1,8 @@
+import React from 'react';
 import axios from 'axios';
 import { useEffect, useState, useContext } from 'react';
 import { GlobalContext } from '../../context/GlobalState';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 import TodoPostit from '../Postit/TodoPostit/TodoPostit.component';
 import PrePostit from '../Postit/PrePostit/PrePostit.component';
 import toast from 'react-hot-toast';
@@ -44,8 +46,10 @@ const TodoPostits = () => {
   };
 
   const addNewButtonClick = () => {
+    window.scroll({top: 150, left: 150})
     setNewTaskColour(colours[colourNumber]);
     setIsAddingNew(!isAddingNew);
+    setNewTask('')
     if (colourNumber !== 4) {
       setColourNumber(colourNumber + 1);
     } else {
@@ -116,16 +120,16 @@ const TodoPostits = () => {
           )}
         </Styled.TodoPostitsContainer>
 
-        {postitsArray.length < 1 && (
+        {(postitsArray.length < 1 && !isAddingNew === true) && (
           <Styled.AddPostitHeader>
-            Click the "+" button below to add a postit note...
+            Click the &quot;+&quot; button below to add a postit note...
           </Styled.AddPostitHeader>
         )}
         <Styled.AddPostitButton
           onClick={addNewButtonClick}
           postitsArrayLength={postitsArray.length}
         >
-          +
+        <Styled.AddRemoveIcon icon={isAddingNew ? faMinus : faPlus}/>
         </Styled.AddPostitButton>
       </Styled.TodoPostitsWrapper>
     );

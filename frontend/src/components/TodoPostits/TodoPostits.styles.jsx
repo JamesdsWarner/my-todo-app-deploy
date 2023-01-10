@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const TodoPostitsWrapper = styled.div`
   display: flex;
-  margin-top: 100px;
+  margin-top: 60px;
+
   flex-direction: column;
+  @media only screen and (min-width: 632px) {
+    margin-top: 100px;
+  }
 `;
 
 export const TodoPostitsContainer = styled.div`
@@ -46,12 +51,20 @@ export const AddPostitButton = styled.button`
   position: relative;
   bottom: 100px;
   bottom: 0;
-  margin-top: 90px;
-  margin-bottom: 60px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+    margin-top: 60px;
+    margin-bottom: 80px;
+
+
   &:hover {
     background-color: #fff740;
   }
+`;
+
+export const AddRemoveIcon = styled(FontAwesomeIcon)`
+  vertical-align: -0.15em;
 `;
 
 // colours:

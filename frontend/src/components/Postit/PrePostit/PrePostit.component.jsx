@@ -1,3 +1,4 @@
+import React from 'react'
 import { faChevronDown, faPlus } from '@fortawesome/free-solid-svg-icons';
 import ColourPicker from '../../ColourPicker/ColourPicker.component';
 import colorWheel from '../../../images/color-wheel.png';
@@ -14,10 +15,17 @@ const PrePostit = ({
 }) => {
   const [isChevronClicked, setIsChevronClicked] = useState(false);
   const [isColourClicked, setIsColourClicked] = useState(false);
+  const [isTypingStarted, setIsTypingStarting] = useState(false);
+  const [isNoteTimeout, setIsNoteTimeout] = useState(false);
 
   const handleChange = (e) => {
+    setIsNoteTimeout(false)
     setNewTask(e.target.value);
+    setIsTypingStarting(true);
+    setTimeout(function() {setIsNoteTimeout(true)}, 3000);
   };
+
+  console.log(isNoteTimeout)
 
   const handleClearButtonClick = () => {
     setNewTask('');
@@ -90,8 +98,11 @@ const PrePostit = ({
         maxRows={5}
         colour={newTaskColour}
         disabled={false}
+        autoFocus
       />
+      <Styled.AddTextSpeechBubble isTypingStarted={isTypingStarted} newTask={newTask}>Add new task here</Styled.AddTextSpeechBubble>
       <Styled.DeleteIcon onClick={addNewButtonClick}>&#10006;</Styled.DeleteIcon>
+      <Styled.DeleteSpeechBubble newTask={newTask} isNoteTimeout={isNoteTimeout}>Click to add</Styled.DeleteSpeechBubble>
       <Styled.DoneButtonWrapper>
         <Styled.DoneButton onClick={handleFinishedPostit}><Styled.PlusSpan icon={faPlus}></Styled.PlusSpan></Styled.DoneButton>
       </Styled.DoneButtonWrapper>

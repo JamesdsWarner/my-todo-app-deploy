@@ -1,14 +1,18 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-image: url('https://img.freepik.com/premium-photo/corkwood-texture_253658-5839.jpg?w=2000');
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+		'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	/* background-color: #00c6e0; */
+	/* background-image: url('https://www.transparenttextures.com/patterns/asfalt-dark.png'); */
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
+	background-image: url('https://res.cloudinary.com/dbq4xtolf/image/upload/v1673299170/imgonline-com-ua-twotoone-DxyOip8zpW_vnltsi.jpg');
+	/* background-size: 1750px; */
+
+	/* background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9785cce5-f242-4108-a82f-bd86c768f5fa/d55wkf5-a1d5f541-4fe6-4652-82e3-2d2552d347e7.jpg/v1/fill/w_900,h_1235,q_75,strp/cork_02_by_purpledragon42_stock_d55wkf5-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTIzNSIsInBhdGgiOiJcL2ZcLzk3ODVjY2U1LWYyNDItNDEwOC1hODJmLWJkODZjNzY4ZjVmYVwvZDU1d2tmNS1hMWQ1ZjU0MS00ZmU2LTQ2NTItODJlMy0yZDI1NTJkMzQ3ZTcuanBnIiwid2lkdGgiOiI8PTkwMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ktmwGTCloWl5P888H6CU2gKP70y1GEfjQvhfKR0_vjc'); */
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }

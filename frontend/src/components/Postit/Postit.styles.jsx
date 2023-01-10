@@ -1,6 +1,6 @@
 import TextareaAutosize from 'react-textarea-autosize';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 
 export const TodoPostitWrapper = styled.div`
   background-color: #${(props) => props.colour};
@@ -10,7 +10,8 @@ export const TodoPostitWrapper = styled.div`
   min-height: 300px;
   min-width: 300px;
   position: relative;
-  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 `;
 
 export const DropdownWrapper = styled.div``;
@@ -36,7 +37,9 @@ export const ClearText = styled.p`
   margin-top: 4px;
   transition: all 0.25s ease;
   color: ${(props) =>
-    props.colour === 'yellow' || props.colour === 'blue' || props.colour === 'green'
+    props.colour === 'yellow' ||
+    props.colour === 'blue' ||
+    props.colour === 'green'
       ? 'black'
       : 'white'};
   cursor: pointer;
@@ -77,7 +80,9 @@ export const TodoPostitInput = styled(TextareaAutosize)`
   ::placeholder {
     /* Chrome, Firefox, Opera, Safari 10.1+ */
     color: ${(props) =>
-      props.colour === 'yellow' || props.colour === 'blue' || props.colour === 'green'
+      props.colour === 'yellow' ||
+      props.colour === 'blue' ||
+      props.colour === 'green'
         ? ''
         : 'white'};
   }
@@ -139,11 +144,10 @@ export const AddTaskButton = styled.button`
   cursor: pointer;
   transition: all 0.2s ease;
   text-align: center;
-display: flex;
+  display: flex;
   padding: 0px;
   justify-content: center;
   align-items: center;
-
 
   &:hover {
     background-color: white;
@@ -151,8 +155,108 @@ display: flex;
 `;
 
 export const PlusSpan = styled(FontAwesomeIcon)`
-font-size: 20px;`
+  font-size: 20px;
+`;
 
 export const Refresh = styled(FontAwesomeIcon)`
   font-size: 20px;
 `;
+
+const expandBounce = () =>
+  keyframes`
+   0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+  `
+
+const shrink = () =>
+keyframes`
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+`
+
+export const AddTextSpeechBubble = styled.div`
+  height: 40px;
+  position: absolute;
+  opacity: ${props =>  props.isTypingStarted ? props.newTask.length > 0 ? 0 : 0 : 0.95};
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: #5a5a5a;
+  color: white;
+  border-radius: 10px;
+  width: 80px;
+  padding: 8px;
+  right: -30px;
+  top: 55px;
+  transform: scale(1);
+  animation-fill-mode: forwards;
+  z-index: 999;
+  font-size: 16px;
+  transition: all 0.2s ease;
+  font-weight: 900;
+
+
+  ::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -25px;
+  left: 5px;
+  border-style: solid;
+  border-width: 15px;
+  border-color: #5a5a5a transparent transparent #5a5a5a;
+  transform: rotate(10deg);
+}
+
+
+animation: ${props => props.newTask.length > 0 ? shrink : expandBounce} 0.3s ease;
+
+`;
+
+export const DeleteSpeechBubble = styled.div`
+  height: 16px;
+  position: absolute;
+  opacity: ${props =>  props.isNoteTimeout && props.newTask  ? 0.95 : 0};
+  transform-origin: 0% 100%;
+  text-align: center;
+  background-color: #5a5a5a;
+  color: white;
+  border-radius: 10px;
+  width: 90px;
+  padding: 8px;
+  left: 33px;
+  bottom: 80px;
+  transform: scale(1);
+  animation-fill-mode: forwards;
+  z-index: 999;
+  font-size: 13px;
+  transition: all 0.2s ease;
+  font-weight: 900;
+  
+    ::before {
+  content: "";
+  display: block;
+  width: 0;
+  position: absolute;
+  bottom: -23px;
+  right: 10px;
+  border-style: solid;
+  border-width: 15px;
+  border-color:  #5a5a5a #5a5a5a transparent transparent;
+  transform: rotate(-10deg);
+}
+
+animation: ${props => props.isNoteTimeout && props.newTask ? expandBounce  : shrink} 0.3s ease;
+
+  `
