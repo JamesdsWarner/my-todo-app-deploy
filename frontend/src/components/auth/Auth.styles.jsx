@@ -1,29 +1,39 @@
 import styled from 'styled-components';
 
 export const AuthWrapper = styled.div`
-  background-color: #fffcf7;
+  background-color: #f5f5f5;
   border-radius: 8px;
-  max-width: 350px;
+  max-width: 450px;
   width: 90%;
   margin: auto;
   align-self: center;
   padding-bottom: 50px;
+  margin-top: 20px;
+  margin-bottom: 30px;
   padding-top: 15px;
-  margin-top: 5vh;
   display: flex;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px,
+    rgba(0, 0, 0, 0.22) 0px 10px 10px;
 
-  > * {
+    > * {
     &:first-child {
-      margin-bottom: 40px;
+      margin-bottom: 10px;
     }
   }
+  
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 675px) {
     max-width: 550px;
     gap: 40px;
     padding: 0 60px 50px;
     flex-direction: row;
+    margin-top: 20vh;
+    > * {
+    &:first-child {
+      margin-bottom: 40px;
+    }
+  }
   }
 `;
 
@@ -31,7 +41,7 @@ export const FormWrapper = styled.div`
   width: 250px;
   margin: auto;
 
-  @media only screen and (min-width: 600px) {
+  @media only screen and (min-width: 675px) {
     width: 400px;
     margin: 0;
   }
