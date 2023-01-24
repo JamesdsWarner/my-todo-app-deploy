@@ -12,6 +12,10 @@ const taskSchema = new Schema(
       type: String,
       required: true,
     },
+    rotate: {
+      type: Number,
+      required: true
+    },
     completed: {
       type: Boolean,
       required: false,

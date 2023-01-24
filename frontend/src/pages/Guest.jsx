@@ -1,11 +1,9 @@
-import TodoPostits from '../components/TodoPostits/TodoPostits.component';
+import TodoPostits from '../components/guest/TodoPostits/TodoPostits.component';
 
 const Guest = ({ isGuest }) => {
   return (
-    <>
-      <TodoPostits isGuest={isGuest} />
-    </>
-  );
+      <TodoPostits  />
+  )
 };
 
 export default Guest;

@@ -6,6 +6,7 @@ export const createTask = async (req, res, next) => {
     const newTask = new Task({
       title: req.body.title,
       colour: req.body.colour,
+      rotate: req.body.rotate,
       user: req.user.id,
       completed: req.body.completed,
     });

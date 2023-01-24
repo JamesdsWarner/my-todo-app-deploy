@@ -6,7 +6,7 @@ const Home = ({ isGuest }) => {
   return (
     <>
       <Navbar />
-      <TodoPostits isGuest={isGuest} />
+      <TodoPostits />
     </>
   );
 };

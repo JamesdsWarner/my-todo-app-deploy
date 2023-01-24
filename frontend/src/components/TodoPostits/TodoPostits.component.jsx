@@ -14,6 +14,12 @@ const TodoPostits = () => {
 	const [isAddingNew, setIsAddingNew] = useState(false);
 	const [newTask, setNewTask] = useState('');
 	const [newTaskColour, setNewTaskColour] = useState();
+	const [newRotate, setNewRotate] = useState();
+
+	function randomIntFromInterval(min, max) {
+		// min and max included
+		return Math.floor(Math.random() * (max - min + 1) + min);
+	}
 
 	const addNewTask = async e => {
 		if (newTask.length <= 0) {
@@ -24,6 +30,7 @@ const TodoPostits = () => {
 			const { data } = await axios.post('/api/tasks', {
 				title: newTask,
 				colour: newTaskColour,
+				rotate: newRotate,
 			});
 			toast.success('New Task Created');
 			setPostitsArray([{ ...data }, ...postitsArray]);
@@ -46,6 +53,8 @@ const TodoPostits = () => {
 	};
 
 	const addNewButtonClick = () => {
+		setNewRotate(randomIntFromInterval(-3, 3));
+
 		window.scroll({ top: 150, left: 150 });
 		setNewTaskColour(colours[colourNumber]);
 		setIsAddingNew(!isAddingNew);
@@ -79,10 +88,6 @@ const TodoPostits = () => {
 		4: 'green',
 	};
 
-	const handleAddButtonClick = () => {
-		setIsAddingNew(true);
-	};
-
 	{
 		return (
 			<Styled.TodoPostitsWrapper>
@@ -96,6 +101,7 @@ const TodoPostits = () => {
 							newTaskColour={newTaskColour}
 							setNewTaskColour={setNewTaskColour}
 							addNewButtonClick={addNewButtonClick}
+							rotateDeg={newRotate}
 						/>
 					)}
 					{postitsArray.map(
@@ -114,12 +120,12 @@ const TodoPostits = () => {
 											completed={task.completed}
 											deleteTask={deleteTask}
 											new={false}
+											rotateDeg={task.rotate}
 										/>
 									);
 							  }
 					)}
 				</Styled.TodoPostitsContainer>
-
 				{postitsArray.length < 1 && !isAddingNew === true && (
 					<Styled.AddPostitHeader>
 						Click the &quot;+&quot; button below to add a postit note...

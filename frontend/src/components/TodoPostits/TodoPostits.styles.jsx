@@ -9,6 +9,11 @@ export const TodoPostitsWrapper = styled.div`
 	@media only screen and (min-width: 632px) {
 		margin-top: 100px;
 	}
+
+	a {
+		text-decoration: none;
+		margin: auto;
+	}
 `;
 
 export const TodoPostitsContainer = styled.div`
